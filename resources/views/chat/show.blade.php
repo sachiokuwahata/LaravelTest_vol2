@@ -20,6 +20,8 @@
                     <option value="1回">1回</option>
                     <option value="2回">2回</option>
                     <option value="3回">3回</option>
+                    <option value="3回">4回</option>
+                    <option value="3回">5回</option>
                     </select>                
                     </p>
 
