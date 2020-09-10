@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:companies'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            // 'hash' => ['required', 'string'],
         ]);
     }
 
@@ -86,10 +87,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $hash = $data['name'].$data['email'].$data['password'];
+
+        $hashmd5 = md5($hash);
+        // dd($hashmd5);
         return Company::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'hash' => $hashmd5,
         ]);
     }
 }

@@ -5,6 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Contract;
+use Illuminate\Support\Facades\Auth;
+
+
 class HomeController extends Controller
 {
     /**
@@ -14,8 +18,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        return view('user.home');
+
+        $loginId = Auth::id();
+//        dd($loginId);
+
+        $contractusers = Contract::where('to_user_id', $loginId)
+        ->get();
+//        ->pluck('from_user_id');
+
+        // foreach($contractusers as $contractuser){
+        //     $name = $contractuser->company->name;
+        //     // dd($name);
+        // }
+                     
+
+        return view('user.home', compact('contractusers'));
     }
 
     /**

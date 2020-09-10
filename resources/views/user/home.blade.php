@@ -15,9 +15,30 @@
                     @endif
 
                     You are logged in!
-                </div>
-            </div>
+                </div>                
+            </div>            
         </div>
+
+        @foreach($contractusers as $user)
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">契約申請が来てます</div>
+
+                <div class="card-body">
+
+                    <div class="card">
+                    <div class="card-body">
+                        <p class="col-md-4">名前： {{ $user->company['name'] }} </p>
+                    </div>
+                    </div>
+                </div>                
+            </div>            
+        </div>
+        @endforeach
+
+
+
     </div>
 </div>
 @endsection

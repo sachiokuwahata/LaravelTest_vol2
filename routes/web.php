@@ -84,6 +84,11 @@ Route::namespace('Company')->prefix('company')->name('company.')->group(function
           Route::get('/contract/show', 'ContractController@show')->name('contract.show');
           Route::post('/contract/presentation', 'ContractController@presentation')->name('contract.presentation');
 
+          Route::get('/getaddress', 'ReferFriendController@getaddress')->name('getaddress');
+        //   Route::get('/contactFriend/{hashid}', 'ReferFriendController@contactFriend')->name('contactFriend');
+          Route::get('/contactFriend/{id}', 'ReferFriendController@contactFriend')->name('contactFriend');
+
+
 
     });
 
